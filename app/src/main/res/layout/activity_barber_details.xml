@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hano.android.Activities.RegisterActivity">
+
+    <!-- The ActionBar -->
+
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >-->
+
+    <RelativeLayout
+        android:id="@+id/masterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#555555"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <RelativeLayout
+            android:id="@+id/formLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/transparent_white"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:id="@+id/shopName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/feed_item_margin"
+                android:text="Viral Hair Cut"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/brand_color_light"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/barberName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shopName"
+                android:layout_marginTop="@dimen/feed_item_margin"
+                android:text="Mr.Lakshman"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/shopAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/barberName"
+                android:layout_marginTop="@dimen/feed_item_margin"
+                android:text="172/1,P.R Building,3rd Floor,BTM 1st Stage,Bangalore-560029"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+            <!--
+                        <EditText
+                            android:id="@+id/name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/feed_item_margin"
+                            android:ems="10"
+                            android:hint="@string/hint_name"
+                            android:inputType="text"
+                            android:textColorHint="@android:color/darker_gray">
+
+                            <requestFocus />
+                        </EditText>
+
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/name"
+                            android:layout_marginTop="@dimen/feed_item_margin"
+                            android:ems="10"
+                            android:hint="@string/hint_email"
+                            android:inputType="text"
+                            android:textColorHint="@android:color/darker_gray" />
+
+                        <EditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/email"
+                            android:layout_marginTop="@dimen/feed_item_margin"
+                            android:ems="10"
+                            android:hint="@string/hint_password"
+                            android:inputType="textPassword"
+                            android:textColorHint="@android:color/darker_gray" />
+
+                        <EditText
+                            android:id="@+id/contactNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/password"
+                            android:layout_marginTop="@dimen/feed_item_margin"
+                            android:ems="10"
+                            android:hint="@string/hint_contact_number"
+                            android:inputType="text"
+                            android:textColorHint="@android:color/darker_gray" />-->
+
+            <TextView
+                android:id="@+id/shopTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shopAddress"
+                android:layout_marginTop="@dimen/feed_item_margin"
+                android:text="9am - 9pm"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/bookNow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shopTime"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/view_element_margin"
+                android:background="@color/brand_color_light"
+                android:padding="@dimen/feed_item_padding_left_right"
+                android:text="Book Now"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5dp"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <!--</ScrollView>-->
+
+</RelativeLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="blue" type="color">#FF33B5E5</item>
+    <item name="purple" type="color">#FFAA66CC</item>
+    <item name="green" type="color">#FF99CC00</item>
+    <item name="orange" type="color">#FFFFBB33</item>
+    <item name="red" type="color">#FFFF4444</item>
+    <item name="darkblue" type="color">#FF0099CC</item>
+    <item name="darkpurple" type="color">#FF9933CC</item>
+    <item name="darkgreen" type="color">#FF669900</item>
+    <item name="darkorange" type="color">#FFFF8800</item>
+    <item name="darkred" type="color">#FFCC0000</item>
+    <item name="cream" type="color">#fbfcd0</item>
+
+    <!-- For Floating Action Button -->
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+    <color name="white">#fafafa</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
+    <color name="fab_orange">#e74c3c</color>
+    <color name="card_background">#ffffff</color>
+    <color name="card_shadow_1">#d4d4d4</color>
+    <color name="card_shadow_2">#dddddd</color>
+    <color name="card_detailing">#eee</color>
+    <color name="transparent">#00000000</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="background_black">#000000</color>
+
+    <integer-array name="androidcolors">
+        <item>@color/blue</item>
+        <item>@color/purple</item>
+        <item>@color/green</item>
+        <item>@color/orange</item>
+        <item>@color/red</item>
+        <item>@color/darkblue</item>
+        <item>@color/darkpurple</item>
+        <item>@color/darkgreen</item>
+        <item>@color/darkorange</item>
+        <item>@color/darkred</item>
+    </integer-array>
+
+    <color name="add_product_button_text_color">#ffffff</color>
+    <color name="login_page_first_line">#3b5998</color>
+    <color name="create_account_button">#ff4040</color>
+    <color name="hyper_link_blue">#156cff</color>
+    <color name="feed_bg">#d3d6db</color>
+    <color name="feed_item_bg">#ffffff</color>
+
+    <!-- For Navigation Drawer -->
+
+    <color name="list_item_title">#000000</color>
+    <color name="list_background">#ffffff</color>
+    <color name="list_background_pressed">#0099cc</color>
+    <color name="list_divider_nav_drawer">#272727</color>
+
+    <!-- Select Products Fragment -->
+
+    <color name="description">#666666</color>
+    <color name="price">#ff0000</color>
+    <color name="quantity">#FF669900</color>
+    <color name="list_divider">#d9d9d9</color>
+    <color name="list_row_start_color">#ffffff</color>
+    <color name="list_row_end_color">#ffffff</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+
+
+    <!-- Revamp Colors -->
+
+    <!-- Brand colors -->
+    <color name="brand_color_light">#FC1333</color>
+    <color name="brand_color_dark">#C90C26</color>
+
+
+    <color name="transparent_white">#CCFFFFFF</color>
+    <color name="trasnparent_black">#BF000000</color>
+
+    <color name="divider">#0D000000</color>
+
+    <!-- Opacity reference -->
+
+    <!--
+    100% — FF
+    95% — F2
+    90% — E6
+    85% — D9
+    80% — CC
+    75% — BF
+    70% — B3
+    65% — A6
+    60% — 99
+    55% — 8C
+    50% — 80
+    45% — 73
+    40% — 66
+    35% — 59
+    30% — 4D
+    25% — 40
+    20% — 33
+    15% — 26
+    10% — 1A
+    5% — 0D
+    0% — 00
+    -->
+
+
+</resources>
