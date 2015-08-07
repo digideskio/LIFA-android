@@ -26,31 +26,6 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin">
 
-        <!--<TextView
-            android:id="@+id/textViewFirstLine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/feed_item_margin"
-            android:layout_centerHorizontal="true"
-            android:text="@string/textview_login_first_line"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/login_page_first_line"
-            android:textStyle="bold" />
--->
-        <!--   <TextView<include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-               android:id="@+id/textViewSecondLine"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_below="@+id/textViewFirstLine"
-               android:layout_marginTop="@dimen/feed_item_margin"
-               android:text="Get in there"
-               android:textAppearance="?android:attr/textAppearanceMedium" />-->
-
         <RelativeLayout
             android:id="@+id/formLayout"
             android:layout_width="match_parent"
@@ -63,13 +38,13 @@
             android:paddingTop="@dimen/activity_vertical_margin">
 
             <EditText
-                android:id="@+id/loginUsername"
+                android:id="@+id/loginNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/feed_item_margin"
                 android:ems="10"
-                android:hint="@string/hint_email"
-                android:inputType="text"
+                android:hint="@string/hint_contact_number"
+                android:inputType="number"
                 android:textColorHint="@android:color/darker_gray">
 
                 <requestFocus />
@@ -79,7 +54,7 @@
                 android:id="@+id/loginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/loginUsername"
+                android:layout_below="@+id/loginNumber"
                 android:layout_marginTop="@dimen/view_element_margin"
                 android:ems="10"
                 android:hint="@string/hint_password"

@@ -33,11 +33,21 @@
                 android:textSize="@dimen/main_title" />
 
             <TextView
-                android:id="@+id/bookingDate"
+                android:id="@+id/bookingTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="@dimen/view_element_margin"
+                android:text="9:00am"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sub_headings" />
+
+            <TextView
+                android:id="@+id/bookingDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/bookingTime"
                 android:text="07-09-2014"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/sub_headings" />
@@ -88,8 +98,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/divider2"
                 android:text="Barber Unavailable"
-                android:textSize="@dimen/sub_headings"
                 android:textColor="@color/brand_color_light"
+                android:textSize="@dimen/sub_headings"
                 android:textStyle="italic" />
 
             <TextView

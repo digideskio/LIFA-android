@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import space.theninjaguys.www.lifa.Fragments.BarberList;
 import space.theninjaguys.www.lifa.Fragments.BookedHistory;
+import space.theninjaguys.www.lifa.Fragments.LogOut;
 
 
 public class Dashboard extends ActionBarActivity {
@@ -40,6 +41,9 @@ public class Dashboard extends ActionBarActivity {
                 BarberList.class);
         mDrawer.addNavItem(navMenuTitles[1], navMenuTitles[1],
                 BookedHistory.class);
+        //TODO Add about us page
+        mDrawer.addNavItem(navMenuTitles[3], navMenuTitles[3],
+                LogOut.class);
 
         // Select default
         if (savedInstanceState == null) {
@@ -47,9 +51,7 @@ public class Dashboard extends ActionBarActivity {
             //selectItem(0);
         }
 
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

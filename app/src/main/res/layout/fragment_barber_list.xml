@@ -12,22 +12,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
-        android:id="@+id/no_barber_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical|center"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/feed_item_padding_left_right"
+        android:text="No Barber at this location"
+        android:visibility="gone" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="No Barber in this location"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-    </LinearLayout>
+    <!-- <LinearLayout
+         android:id="@+id/no_barber_view"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:gravity="center_vertical|center"
+         android:orientation="vertical">
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:fontFamily="sans-serif"
+             android:gravity="center"
+             android:text="No Barber in this location"
+             android:textAlignment="center"
+             android:textSize="20sp" />
+     </LinearLayout>-->
 
     <ProgressBar
         android:id="@+id/progressBar"

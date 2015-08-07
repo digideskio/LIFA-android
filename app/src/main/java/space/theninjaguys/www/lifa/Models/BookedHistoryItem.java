@@ -5,13 +5,25 @@ package space.theninjaguys.www.lifa.Models;
  */
 public class BookedHistoryItem {
 
+    String id;
     String shopName;
     String barberName;
     String shopAddress;
     String date;
     String time;
     String uniquePin;
+    String bookingStatus;
+
     boolean Availability;
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getShopName() {
         return shopName;
@@ -68,4 +80,13 @@ public class BookedHistoryItem {
     public void setAvailability(boolean availability) {
         Availability = availability;
     }
+
+    public String getBookingStatus() {
+        return bookingStatus;
+    }
+
+    public void setBookingStatus(String bookingStatus) {
+        this.bookingStatus = bookingStatus;
+    }
+
 }

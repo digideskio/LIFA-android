@@ -5,10 +5,20 @@ package space.theninjaguys.www.lifa.Models;
  */
 public class BarberListItem {
 
+    String id;
     String shopName;
     String barberName;
     String shopAddress;
     boolean Availability;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
 
     public String getShopName() {
         return shopName;
