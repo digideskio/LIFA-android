@@ -1,4 +1,4 @@
-package space.theninjaguys.www.lifa;
+package space.theninjaguys.www.lifa.Helper;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,6 +17,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import space.theninjaguys.www.lifa.R;
 
 /**
  * Created by rj on 8/7/15.

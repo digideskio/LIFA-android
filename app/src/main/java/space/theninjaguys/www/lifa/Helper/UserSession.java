@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 
 import java.util.HashMap;
 
-import space.theninjaguys.www.lifa.LoginActivity;
+import space.theninjaguys.www.lifa.Activities.LoginActivity;
 
 /**
  * Created by rj on 8/7/15.

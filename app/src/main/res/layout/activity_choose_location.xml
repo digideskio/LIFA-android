@@ -41,14 +41,18 @@
                 android:text="What's your location ?"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <Spinner
-                android:id="@+id/chooseLocationSpinner"
-                android:layout_below="@+id/textViewSecondLine"
-                android:layout_marginTop="@dimen/feed_item_margin"
+            <AutoCompleteTextView
+                android:id="@+id/chooseLocation"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </Spinner>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/feed_item_margin"
+                android:layout_below="@+id/textViewSecondLine"
+                android:layout_alignStart="@+id/createAccountButton"
+                android:layout_alignLeft="@+id/createAccountButton"
+                android:layout_alignEnd="@+id/createAccountButton"
+                android:hint="Start typing"
+                android:layout_alignRight="@+id/createAccountButton"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
           <!--  <EditText
                 android:id="@+id/location"
@@ -68,7 +72,7 @@
                 android:id="@+id/createAccountButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/chooseLocationSpinner"
+                android:layout_below="@+id/chooseLocation"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/view_element_margin"
                 android:background="@color/brand_color_light"

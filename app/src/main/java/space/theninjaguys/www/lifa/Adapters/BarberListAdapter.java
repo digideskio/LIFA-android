@@ -13,7 +13,7 @@ import java.util.List;
 
 import space.theninjaguys.www.lifa.Helper.Keys;
 import space.theninjaguys.www.lifa.Models.BarberListItem;
-import space.theninjaguys.www.lifa.PaymentActivity;
+import space.theninjaguys.www.lifa.Activities.PaymentActivity;
 import space.theninjaguys.www.lifa.R;
 
 /**

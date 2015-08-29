@@ -1,4 +1,4 @@
-package space.theninjaguys.www.lifa;
+package space.theninjaguys.www.lifa.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -30,8 +30,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import space.theninjaguys.www.lifa.Helper.AppController;
 import space.theninjaguys.www.lifa.Helper.Keys;
 import space.theninjaguys.www.lifa.Helper.UserSession;
+import space.theninjaguys.www.lifa.R;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -119,18 +121,16 @@ public class LoginActivity extends ActionBarActivity {
             public void onResponse(JSONObject json) {
 
                 mProgressBar.setVisibility(View.GONE);
-                try {
+               /* try {
 
-                    //TODO Handle response and if success save data to user session
-                    //TODO And Take run intentToDashboard
-                    //TODO If failure show error message
+                  
 
 
                 } catch (JSONException e) {
 
                     e.printStackTrace();
                 }
-
+*/
 
             }
         }, new Response.ErrorListener() {

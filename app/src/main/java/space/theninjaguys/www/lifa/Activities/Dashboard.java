@@ -1,4 +1,4 @@
-package space.theninjaguys.www.lifa;
+package space.theninjaguys.www.lifa.Activities;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.ListView;
 import space.theninjaguys.www.lifa.Fragments.BarberList;
 import space.theninjaguys.www.lifa.Fragments.BookedHistory;
 import space.theninjaguys.www.lifa.Fragments.LogOut;
+import space.theninjaguys.www.lifa.Helper.FragmentNavDrawer;
+import space.theninjaguys.www.lifa.R;
 
 
 public class Dashboard extends ActionBarActivity {

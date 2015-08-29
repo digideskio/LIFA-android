@@ -1,4 +1,4 @@
-package space.theninjaguys.www.lifa;
+package space.theninjaguys.www.lifa.Helper;
 
 import android.app.Application;
 import android.text.TextUtils;

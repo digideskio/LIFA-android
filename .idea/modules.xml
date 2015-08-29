@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Lifa.iml" filepath="$PROJECT_DIR$/Lifa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LIFA-android.iml" filepath="$PROJECT_DIR$/LIFA-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

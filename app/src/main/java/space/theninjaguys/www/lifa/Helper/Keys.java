@@ -36,9 +36,11 @@ public class Keys {
     public static final String BOOKING_STATUS_COMPLETED = "";
 
 
+
     /* Urls */
-    public static final String URL_LOGIN = "";
-    public static final String URL_REGISTRATION = "";
+    public static final String BASE_URL = "https://young-basin-1937.herokuapp.com";
+    public static final String URL_LOGIN = "/api/users/login";
+    public static final String URL_REGISTRATION = "/api/users";
     public static final String URL_GET_LOCATION = "";
     public static final String URL_GET_BARBER_LIST = "";
     public static final String URL_GET_BOOKED_HISTORY = "";
