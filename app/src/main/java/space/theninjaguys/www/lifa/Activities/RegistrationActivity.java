@@ -60,10 +60,10 @@ public class RegistrationActivity extends ActionBarActivity {
                 if ((etName.getText().toString().trim().length() > 0) && (etPassword.getText().toString().trim().length() > 0)
                         && (etEmail.getText().toString().trim().length() > 0) && (etNumber.getText().toString().trim().length() > 0)) {
 
-                    if(isNetworkAvailable()) {
+                    if (isNetworkAvailable()) {
                         mProgressBar.setVisibility(View.VISIBLE);
-                        runLogin(etName.getText().toString().trim(),etEmail.getText().toString().trim(),
-                                etPassword.getText().toString().trim(),Integer.valueOf(etNumber.getText().toString().trim()));
+                        runLogin(etName.getText().toString().trim(), etEmail.getText().toString().trim(),
+                                etPassword.getText().toString().trim(), Integer.valueOf(etNumber.getText().toString().trim()));
 
                     } else {
 
@@ -97,19 +97,27 @@ public class RegistrationActivity extends ActionBarActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    private void runLogin(String name,String email, String password,int contactNumber) {
+    private void runLogin(String name, String email, String password, int contactNumber) {
+        try {
+            JSONObject registrationData = new JSONObject();
+            JSONObject registrationDataValue = new JSONObject();
+            registrationDataValue.put(Keys.USER_NAME, name);
+            registrationDataValue.put(Keys.USER_EMAIL, email);
+            registrationDataValue.put(Keys.USER_PASSWORD, password);
+            registrationDataValue.put(Keys.USER_CONTACT, contactNumber);
 
-        JSONObject registrationData = new JSONObject();
+            registrationData.put(Keys.USER_OBJECT_KEY, registrationDataValue);
 
-        //TODO Create reg data for above json based on format.
+            //TODO Create reg data for above json based on format.
 
-        JsonObjectRequest orderRequest = new JsonObjectRequest(Request.Method.GET,
-                Keys.URL_REGISTRATION, registrationData, new Response.Listener<JSONObject>() {
+            JsonObjectRequest orderRequest = new JsonObjectRequest(Request.Method.POST,
+                    Keys.URL_REGISTRATION, registrationData, new Response.Listener<JSONObject>() {
 
-            @Override
-            public void onResponse(JSONObject json) {
+                @Override
+                public void onResponse(JSONObject json) {
 
-                mProgressBar.setVisibility(View.GONE);
+                    mProgressBar.setVisibility(View.GONE);
+                    Lo
             /*    try {
 
                     //TODO Handle response and if success save data to user session
@@ -123,60 +131,64 @@ public class RegistrationActivity extends ActionBarActivity {
                 }*/
 
 
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-                VolleyLog.d("VolleyDebug",
-                        "Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.i("VolleyDebug", "Error: " + error.getMessage());
-
-                if (error instanceof NetworkError) {
-
-                    Toast.makeText(getApplicationContext(),
-                            "NetworkError", Toast.LENGTH_SHORT).show();
-
-                } else if (error instanceof ServerError) {
-
-                    Toast.makeText(getApplicationContext(),
-                            "ServerError", Toast.LENGTH_SHORT).show();
-
-                } else if (error instanceof AuthFailureError) {
-
-                    Toast.makeText(getApplicationContext(),
-                            "AuthFailureError", Toast.LENGTH_SHORT)
-                            .show();
-
-                } else if (error instanceof ParseError) {
-
-                    Toast.makeText(getApplicationContext(),
-                            "ParseError", Toast.LENGTH_SHORT).show();
-
-                } else if (error instanceof NoConnectionError) {
-
-                    Toast.makeText(getApplicationContext(),
-                            "NoConnectionError", Toast.LENGTH_SHORT)
-                            .show();
-
-                } else if (error instanceof TimeoutError) {
-
-                    Toast.makeText(getApplicationContext(),
-                            "TimeOutError", Toast.LENGTH_SHORT).show();
                 }
+            }, new Response.ErrorListener() {
 
-            }
-        });
+                @Override
+                public void onErrorResponse(VolleyError error) {
 
-        orderRequest.setRetryPolicy(new DefaultRetryPolicy(
-                DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(orderRequest);
-        Log.i("VolleyDebug", "Volley Object added to request");
+                    VolleyLog.d("VolleyDebug",
+                            "Error: " + error.getMessage());
+                    Toast.makeText(getApplicationContext(),
+                            error.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.i("VolleyDebug", "Error: " + error.getMessage());
+
+                    if (error instanceof NetworkError) {
+
+                        Toast.makeText(getApplicationContext(),
+                                "NetworkError", Toast.LENGTH_SHORT).show();
+
+                    } else if (error instanceof ServerError) {
+
+                        Toast.makeText(getApplicationContext(),
+                                "ServerError", Toast.LENGTH_SHORT).show();
+
+                    } else if (error instanceof AuthFailureError) {
+
+                        Toast.makeText(getApplicationContext(),
+                                "AuthFailureError", Toast.LENGTH_SHORT)
+                                .show();
+
+                    } else if (error instanceof ParseError) {
+
+                        Toast.makeText(getApplicationContext(),
+                                "ParseError", Toast.LENGTH_SHORT).show();
+
+                    } else if (error instanceof NoConnectionError) {
+
+                        Toast.makeText(getApplicationContext(),
+                                "NoConnectionError", Toast.LENGTH_SHORT)
+                                .show();
+
+                    } else if (error instanceof TimeoutError) {
+
+                        Toast.makeText(getApplicationContext(),
+                                "TimeOutError", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+
+            orderRequest.setRetryPolicy(new DefaultRetryPolicy(
+                    DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            AppController.getInstance().addToRequestQueue(orderRequest);
+            Log.i("VolleyDebug", "Volley Object added to request");
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+        }
     }
 
     private void intentToDashBoard() {

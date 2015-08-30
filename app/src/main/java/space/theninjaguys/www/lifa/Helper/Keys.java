@@ -8,12 +8,15 @@ public class Keys {
     /*General Keys*/
     public static final String IS_USER_LOGIN = "IsUserLoggedIn";
     public static final String PREFER_NAME = "userSession";
+    public static final String USER_OBJECT_KEY = "user";
 
     /* User keys */
-    public static final String USER_ID = "";
-    public static final String USER_NAME = "";
-    public static final String USER_EMAIL = "";
-    public static final String USER_CONTACT = "";
+    public static final String USER_ID_POST_REGISTRATION = "id";
+    public static final String USER_ID_POST_LOGIN ="user_id";
+    public static final String USER_NAME = "name";
+    public static final String USER_EMAIL = "email";
+    public static final String USER_CONTACT = "mobile_number";
+    public static final String USER_PASSWORD = "password";
 
     /* Barber List Object */
     public static final String BARBER_ID = "";

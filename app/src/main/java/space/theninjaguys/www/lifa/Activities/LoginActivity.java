@@ -1,9 +1,6 @@
 package space.theninjaguys.www.lifa.Activities;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -33,6 +30,7 @@ import org.json.JSONObject;
 import space.theninjaguys.www.lifa.Helper.AppController;
 import space.theninjaguys.www.lifa.Helper.Keys;
 import space.theninjaguys.www.lifa.Helper.UserSession;
+import space.theninjaguys.www.lifa.Helper.Utils;
 import space.theninjaguys.www.lifa.R;
 
 
@@ -45,11 +43,11 @@ public class LoginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mSession = new UserSession(getApplicationContext());
 
-        if (mSession.checkLogin()) {
+        if (mSession.isUserLoggedIn()) {
 
             intentToDashBoard();
-
         } else {
 
             mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -63,8 +61,7 @@ public class LoginActivity extends ActionBarActivity {
 
                     if ((etContactNumber.getText().toString().trim().length() > 0) && etPassword.getText().toString().trim().length() > 0) {
 
-
-                        if (isNetworkAvailable()) {
+                        if (Utils.isNetworkAvailable(getApplicationContext())) {
 
                             mProgressBar.setVisibility(View.VISIBLE);
                             runLogin(Integer.valueOf(etContactNumber.getText().toString().trim()), etPassword.getText().toString().trim());
@@ -104,88 +101,93 @@ public class LoginActivity extends ActionBarActivity {
 
     }
 
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) this
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager
-                .getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
     private void runLogin(int contactNumber, String password) {
 
-        JsonObjectRequest orderRequest = new JsonObjectRequest(Request.Method.GET,
-                Keys.URL_LOGIN, null, new Response.Listener<JSONObject>() {
+        try {
 
-            @Override
-            public void onResponse(JSONObject json) {
+            JSONObject requestObjectContent = new JSONObject();
+            requestObjectContent.put(Keys.USER_CONTACT, contactNumber);
+            requestObjectContent.put(Keys.USER_PASSWORD,password);
 
-                mProgressBar.setVisibility(View.GONE);
-               /* try {
+            JSONObject requestObject = new JSONObject();
+            requestObject.put(Keys.USER_OBJECT_KEY,requestObject);
 
-                  
+            JsonObjectRequest orderRequest = new JsonObjectRequest(Request.Method.POST,
+                    Keys.URL_LOGIN, requestObject, new Response.Listener<JSONObject>() {
 
+                @Override
+                public void onResponse(JSONObject json) {
 
-                } catch (JSONException e) {
+                    mProgressBar.setVisibility(View.GONE);
+                    //try {
 
-                    e.printStackTrace();
+                        Log.i("response",json.toString());
+
+                    //} catch (JSONException e) {
+
+                      //  e.printStackTrace();
+                    //}
+
                 }
-*/
+            }, new Response.ErrorListener() {
 
-            }
-        }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
 
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-                VolleyLog.d("VolleyDebug",
-                        "Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        error.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.i("VolleyDebug", "Error: " + error.getMessage());
-
-                if (error instanceof NetworkError) {
-
+                    VolleyLog.d("VolleyDebug",
+                            "Error: " + error.getMessage());
                     Toast.makeText(getApplicationContext(),
-                            "NetworkError", Toast.LENGTH_SHORT).show();
+                            error.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.i("VolleyDebug", "Error: " + error.getMessage());
 
-                } else if (error instanceof ServerError) {
+                    if (error instanceof NetworkError) {
 
-                    Toast.makeText(getApplicationContext(),
-                            "ServerError", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),
+                                "NetworkError", Toast.LENGTH_SHORT).show();
 
-                } else if (error instanceof AuthFailureError) {
+                    } else if (error instanceof ServerError) {
 
-                    Toast.makeText(getApplicationContext(),
-                            "AuthFailureError", Toast.LENGTH_SHORT)
-                            .show();
+                        Toast.makeText(getApplicationContext(),
+                                "ServerError", Toast.LENGTH_SHORT).show();
 
-                } else if (error instanceof ParseError) {
+                    } else if (error instanceof AuthFailureError) {
 
-                    Toast.makeText(getApplicationContext(),
-                            "ParseError", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),
+                                "AuthFailureError", Toast.LENGTH_SHORT)
+                                .show();
 
-                } else if (error instanceof NoConnectionError) {
+                    } else if (error instanceof ParseError) {
 
-                    Toast.makeText(getApplicationContext(),
-                            "NoConnectionError", Toast.LENGTH_SHORT)
-                            .show();
+                        Toast.makeText(getApplicationContext(),
+                                "ParseError", Toast.LENGTH_SHORT).show();
 
-                } else if (error instanceof TimeoutError) {
+                    } else if (error instanceof NoConnectionError) {
 
-                    Toast.makeText(getApplicationContext(),
-                            "TimeOutError", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),
+                                "NoConnectionError", Toast.LENGTH_SHORT)
+                                .show();
+
+                    } else if (error instanceof TimeoutError) {
+
+                        Toast.makeText(getApplicationContext(),
+                                "TimeOutError", Toast.LENGTH_SHORT).show();
+                    }
+
                 }
+            });
 
-            }
-        });
+            orderRequest.setRetryPolicy(new DefaultRetryPolicy(
+                    DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+            AppController.getInstance().addToRequestQueue(orderRequest);
+            Log.i("VolleyDebug", "Volley Object added to request");
+        } catch (JSONException e) {
 
-        orderRequest.setRetryPolicy(new DefaultRetryPolicy(
-                DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        AppController.getInstance().addToRequestQueue(orderRequest);
-        Log.i("VolleyDebug", "Volley Object added to request");
+            e.printStackTrace();
+        }
+
+
     }
 
     private void intentToDashBoard() {
